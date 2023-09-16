@@ -17,19 +17,19 @@ body {
 }
 
 .wrapper {
-	height: 400px;
-	margin: 200px auto 0;
+	height: 450px;
+	margin: 150px auto 0;
 	position: relative;
-	width: 900px;
+	width: 700px;
 }
 
 .slider_mems {
-	background-color: #ddd;
+	background-color: #000000;
 	height: inherit;
 	overflow: hidden;
 	position: relative;
 	width: inherit;
-	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+
 }
 
 .wrapper > input {
@@ -44,19 +44,19 @@ body {
 }
 
 .mem1 {
-    background-image: url(./img/img1.jpg);
+    background: url(./img/img1.jpg) no-repeat center / contain;
 }
 
 .mem2 {
-    background-image: url(./img/img2.jpg);
+    background: url(./img/img2.jpg) no-repeat center / contain;
 }
 
 .mem3 {
-    background-image: url(./img/img3.jpg);
+    background: url(./img/img3.jpg) no-repeat center / contain;
 }
 
 .mem4 {
-    background-image: url(./img/img4.jpg);
+    background: url(./img/img4.jpg) no-repeat center / contain;
 }
 
 .wrapper .controls {
@@ -93,13 +93,55 @@ body {
 	width: 15px;
 	border-radius: 50%;
 	transition: background ease-in-out .6s;
+    background-color: blue;
 }
 
+
 .wrapper label:hover,
-#slide1:checked ~ .controls label:nth-of-type(1),
-#slide2:checked ~ .controls label:nth-of-type(2),
-#slide3:checked ~ .controls label:nth-of-type(3),
-#slide4:checked ~ .controls label:nth-of-type(4)
+#mem1:checked ~ .controls label:first-child,
+#mem2:checked ~ .controls label:nth-of-type(2),
+#mem3:checked ~ .controls label:nth-of-type(3),
+#mem4:checked ~ .controls label:last-child
 {
-	background-color: #ddd;
+	background-color: white;
 }
+
+.mems {
+	height: inherit;
+	opacity: 0;
+	position: absolute;
+	width: inherit;
+	z-index: 0;
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	transform: scale(1.5);
+    transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+#mem1:checked ~ .slider_mems > .mem1,
+#mem2:checked ~ .slider_mems > .mem2,
+#mem3:checked ~ .slider_mems > .mem3,
+#mem4:checked ~ .slider_mems > .mem4 {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+}
+
+/* Text Styles */
+
+.captions p {
+    display: none;
+    color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+}
+
+#mem1:checked ~ .captions #caption1,
+#mem2:checked ~ .captions #caption2,
+#mem3:checked ~ .captions #caption3,
+#mem4:checked ~ .captions #caption4 {
+    display: block;
+}
+
+
