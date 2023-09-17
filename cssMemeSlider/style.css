@@ -112,9 +112,6 @@ body {
 	position: absolute;
 	width: inherit;
 	z-index: 0;
-	-webkit-transform: scale(1.5);
-	-moz-transform: scale(1.5);
-	-o-transform: scale(1.5);
 	transform: scale(1.5);
     transition: transform ease-in-out .5s, opacity ease-in-out .5s;
 }
@@ -143,6 +140,7 @@ body {
 #mem4:checked ~ .captions #caption4 {
     display: block;
 }
+
 
 @media (max-width: 1024px) {
 
